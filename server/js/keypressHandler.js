@@ -35,12 +35,14 @@ module.exports.initialize = (callback) => {
       process.exit();
     }
 
+    // this functions handle the client's arrow keys
     // check to see if the keypress itself is a valid message
     if (isValidMessage(key.name)) {
       callback(key.name);
       return; // don't do any more processing on this key
     }
 
+    // this function handles the string message from the client, invokes the callback on the message and then clears the message to an empty string
     // otherwise build up a message from individual characters
     if (key && (key.name === 'return' || key.name === 'enter')) {
       // on enter, process the message
@@ -51,7 +53,7 @@ module.exports.initialize = (callback) => {
       }
     } else {
       // collect the individual characters/keystrokes
-      message += (mappedChars[key.name] || key.name);
+      message += (mappedChars[key.name] || key.name); // l + e + f + t + return
       logKeypress(key.name);
     }
 
