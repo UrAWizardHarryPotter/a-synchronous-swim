@@ -1,3 +1,5 @@
+// messageQueue is likely a database
+
 const messages = []; // the storage unit for messages
 
 module.exports.enqueue = (message) => {
